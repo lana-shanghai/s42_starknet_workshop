@@ -1,7 +1,6 @@
 use s42_starknet_workshop::exercises::exercise_1::exercise_1::Base64;
 
 #[test]
-#[available_gas(20000000)]
 fn test_base64_basic() {
   let arr = array!['Hello world!'];
   let res = arr.encode();
@@ -10,7 +9,6 @@ fn test_base64_basic() {
 }
 
 #[test]
-#[available_gas(20000000)]
 fn test_base64_multiple_small_arrays() {
   let arr = array!['H', 'e', 'l', 'lo', ' ', 'wor', 'l', 'd', '!'];
   let res = arr.encode();
@@ -19,7 +17,6 @@ fn test_base64_multiple_small_arrays() {
 }
 
 #[test]
-#[available_gas(200000000)]
 fn test_base64_single_padding() {
   let arr = array!['Hello world!!!'];
   let res = arr.encode();
@@ -28,7 +25,6 @@ fn test_base64_single_padding() {
 }
 
 #[test]
-#[available_gas(200000000)]
 fn test_base64_double_padding() {
   let arr = array!['Hello world!!'];
   let res = arr.encode();
@@ -37,7 +33,6 @@ fn test_base64_double_padding() {
 }
 
 #[test]
-#[available_gas(2000000000)]
 fn test_base64_long_array() {
   let arr = array![
     'Lorem ipsum dolor sit amet, con',
