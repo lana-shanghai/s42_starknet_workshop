@@ -3,15 +3,15 @@ use s42_starknet_workshop::exercises::exercise_1::exercise_1::Base64;
 #[test]
 fn test_base64_basic() {
   let arr = array!['Hello world!'];
-  let res = arr.encode();
+  let res = arr.span().encode();
 
   assert(res == array!['SGVsbG8gd29ybGQh'], 'Invalid encoding');
 }
 
 #[test]
 fn test_base64_multiple_small_arrays() {
-  let arr = array!['H', 'e', 'l', 'lo', ' ', 'wor', 'l', 'd', '!'];
-  let res = arr.encode();
+  let arr = array!['H', '', 'e', 'l', 'lo', ' ', 'wor', 'l', 'd', '!'];
+  let res = arr.span().encode();
 
   assert(res == array!['SGVsbG8gd29ybGQh'], 'Invalid encoding');
 }
@@ -19,7 +19,7 @@ fn test_base64_multiple_small_arrays() {
 #[test]
 fn test_base64_single_padding() {
   let arr = array!['Hello world!!!'];
-  let res = arr.encode();
+  let res = arr.span().encode();
 
   assert(res == array!['SGVsbG8gd29ybGQhISE='], 'Invalid encoding');
 }
@@ -27,7 +27,7 @@ fn test_base64_single_padding() {
 #[test]
 fn test_base64_double_padding() {
   let arr = array!['Hello world!!'];
-  let res = arr.encode();
+  let res = arr.span().encode();
 
   assert(res == array!['SGVsbG8gd29ybGQhIQ=='], 'Invalid encoding');
 }
@@ -51,7 +51,7 @@ fn test_base64_long_array() {
     'ficia deserunt mollit anim id e',
     'st laborum.',
   ];
-  let res = arr.encode();
+  let res = arr.span().encode();
 
   let expected_res = array![
     'TG9yZW0gaXBzdW0gZG9sb3Igc2l0',
