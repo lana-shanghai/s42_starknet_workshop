@@ -7,7 +7,7 @@ fn test_hash_empty() {
 
     let hash = hash_value(values_to_hash.span());
 
-    assert!(hash == 0)
+    assert_eq!(hash, 0)
 }
 
 #[test]
@@ -19,6 +19,6 @@ fn test_hash() {
 
     let hash = hash_value(values_to_hash.span());
 
-    assert!(hash == 1294447910303984572171025620771076375510424011376201048389063849436620661373)
+    assert_eq!(hash, 1294447910303984572171025620771076375510424011376201048389063849436620661373)
 }
 
