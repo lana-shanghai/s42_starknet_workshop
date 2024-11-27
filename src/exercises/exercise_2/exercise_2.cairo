@@ -9,9 +9,10 @@ use s42_starknet_workshop::exercises::exercise_1::exercise_1::Base64;
 pub fn check_sig(
     input: Span<felt252>, signature_r: felt252, signature_s: felt252, pubkey: felt252
 ) -> bool {
-    let base64 = input.encode();
+    // Encode the input
 
-    let message_hash = hash_value(base64.span());
+    // hash the encoded array
 
-    return check_ecdsa_signature(message_hash, pubkey, signature_r, signature_s) == true;
+    // call check_ecdsa_signature
+    return true;
 }
