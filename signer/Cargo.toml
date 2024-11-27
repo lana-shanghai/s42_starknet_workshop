@@ -1,0 +1,7 @@
+[package]
+name = "signer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+starknet = "0.12.0"

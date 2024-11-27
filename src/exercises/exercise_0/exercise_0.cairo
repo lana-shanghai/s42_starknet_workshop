@@ -1,21 +1,24 @@
-/// A cairo program that returns true if you pass an input (a number) and its hash
-
 use core::pedersen::PedersenTrait;
 use core::hash::HashStateTrait;
 
-pub fn hash_value(mut arr: Array<felt252>) -> felt252 {
-    let mut state = PedersenTrait::new(0);
+pub fn hash_value(mut input: Span<felt252>) -> felt252 {
+    // Your code go there.
+    // 1. Create a new pedersen hasher
 
-    while arr.len() > 0 {
-        let value = arr.pop_front().unwrap();
-        state = state.update(value);
-    };
+    // 2. Iterate over all the values in `input` and use them to update the hasher
 
-    let hash_final = state.finalize();
-    return hash_final;
+    // 3. Finalize the hash
+
+    // 4. Return the hash
+    return 0;
 }
 
-fn is_hash(value: Array<felt252>, hash: felt252) -> bool {
-    let value_hashed = hash_value(value);
-    value_hashed == hash
+/// A cairo function that returns true if you pass an input and its pedersen hash
+///
+/// If you prove this execution while keeping `secret_input` private,
+/// you will have proved that you know a value such as it's pedersen hash is `hash`.
+fn is_valid_hash(secret_input: Array<felt252>, hash: felt252) -> bool {
+    let computed_hash = hash_value(secret_input.span());
+
+    return computed_hash == hash;
 }
